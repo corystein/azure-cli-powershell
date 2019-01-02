@@ -31,9 +31,11 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # Install PowerShell Core
 RUN apt-get update -qq && \
     apt-get install -qqy --no-install-recommends\
-    curl gnupg apt-transport-https 
+    curl \
+    gnupg \
+    apt-transport-https && \
+    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
 #&& \
-#curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
 #sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list' && \
 #apt-get update && \
 #apt-get install -y powershell
