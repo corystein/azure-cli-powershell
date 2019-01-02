@@ -74,3 +74,6 @@ RUN AZ_REPO=$(lsb_release -cs) && \
     apt-get update && \
     apt-get install azure-cli
 
+RUN az --version
+
+RUN pwsh --version
