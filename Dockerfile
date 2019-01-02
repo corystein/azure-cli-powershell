@@ -1,6 +1,6 @@
-FROM microsoft/azure-cli
+FROM ubuntu:trusty
 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+#RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 #ENV AZURE_CLI_VERSION "0.10.17"
 #ENV NODEJS_APT_ROOT "node_6.x"
@@ -29,12 +29,12 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 #     azure
 
 # Install PowerShell Core
-RUN apt-get update -qq && \
-    apt-get install -qqy --no-install-recommends\
-    curl \
-    gnupg \
-    apt-transport-https && \
-    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
+#RUN apt-get update -qq && \
+#    apt-get install -qqy --no-install-recommends\
+#    curl \
+#    gnupg \
+#    apt-transport-https && \
+#    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 #&& \
 #sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/microsoft.list' && \
 #apt-get update && \
@@ -43,3 +43,18 @@ RUN apt-get update -qq && \
 #RUN azure config mode arm
 
 #ENV EDITOR vim
+
+
+
+# Install dependencies and clean up
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    apt-utils \
+    ca-certificates \
+    curl \
+    apt-transport-https \
+    lsb-release \
+    software-properties-common \
+    && rm -rf /var/lib/apt/lists/*
+
+
