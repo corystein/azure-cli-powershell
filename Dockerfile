@@ -80,3 +80,4 @@ RUN AZ_REPO=$(lsb_release -cs) && \
 RUN az --version
 
 
+RUN apt-get autoremove --dry-run
