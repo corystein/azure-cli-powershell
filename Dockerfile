@@ -55,6 +55,7 @@ RUN apt-get update \
     curl \
     apt-transport-https \
     lsb-release \
+    libicu55 \
     software-properties-common 
 #\
 #&& rm -rf /var/lib/apt/lists/*
@@ -62,8 +63,10 @@ RUN apt-get update \
 # Install PowerShell
 RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb && \
-    apt-get update && \
-    apt-get install -y powershell
+    apt-get update 
+#&& \
+
+RUN apt-get install -y powershell
 
 RUN pwsh --version
 
