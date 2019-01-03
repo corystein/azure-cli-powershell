@@ -55,7 +55,6 @@ RUN apt-get update \
     curl \
     apt-transport-https \
     lsb-release \
-    libicu55 \
     software-properties-common 
 #\
 #&& rm -rf /var/lib/apt/lists/*
