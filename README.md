@@ -5,13 +5,13 @@ Dockerfile for azure-cli with PowerShell on Ubuntu Linux (Xenial - 16.04)
 ## Usage
 
 ```sh
-docker run -it matsuu/azure-cli-python sh
+docker run -it corystein/azure-cli-powershell sh
 ```
 
 ## Build
 
 ```sh
-docker build -t matsuu/azure-cli-python .
+docker build -t corystein/azure-cli-powershell .
 ```
 
 ## References
