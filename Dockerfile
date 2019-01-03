@@ -55,17 +55,17 @@ RUN apt-get update \
     curl \
     apt-transport-https \
     lsb-release \
-    software-properties-common \
-    && rm -rf /var/lib/apt/lists/*
+    software-properties-common 
+#\
+#&& rm -rf /var/lib/apt/lists/*
 
 # Install PowerShell
 RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb && \
-    apt-get update 
-#&& \
-#    apt-get install -y powershell
+    apt-get update && \
+    apt-get install -y powershell
 
-#RUN pwsh --version
+RUN pwsh --version
 
 # Install Azure CLI
 #RUN AZ_REPO=$(lsb_release -cs) && \
